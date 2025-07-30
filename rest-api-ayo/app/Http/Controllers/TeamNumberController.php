@@ -26,7 +26,7 @@ class TeamNumberController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'team_id' => 'required',
-                'number' => 'required'
+                'number' => 'required|numeric'
             ]);
 
             if ($validator->fails()) {
