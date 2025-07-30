@@ -25,3 +25,5 @@ Route::apiResources([
 ]);
 
 Route::post('/games/goal', [GameController::class, 'goal_store']);
+Route::get('/games/goal/report/{id}', [GameController::class, 'goals_report']);
+Route::get('/games/report/{id}', [GameController::class, 'games_report']);
