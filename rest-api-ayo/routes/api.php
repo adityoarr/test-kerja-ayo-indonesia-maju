@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\PlayerPositionController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TeamNumberController;
-use App\Http\Controllers\TournamentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,5 +21,5 @@ Route::apiResources([
     'team_number' => TeamNumberController::class,
     'players' => PlayerController::class,
     'player_position' => PlayerPositionController::class,
-    'tournament' => TournamentController::class,
+    'games' => GameController::class,
 ]);
