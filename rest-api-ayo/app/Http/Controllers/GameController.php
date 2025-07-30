@@ -128,4 +128,33 @@ class GameController extends Controller
             return response()->json(['error' => 'An unexpected error occurred'], 500);
         }
     }
+
+    public function goal_store(Request $request)
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'game_id' => 'required',
+                'player_id' => 'required',
+                'is_team_home' => 'required',
+                'is_team_away' => 'required',
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json(['errors' => $validator->errors()], 422);
+            }
+
+            $game_goal = new Game();
+            $game_goal->game_id = $request->game_id;
+            $game_goal->player_id = $request->player_id;
+            $game_goal->is_team_home = $request->is_team_home;
+            $game_goal->is_team_away = $request->is_team_away;
+            $game_goal->save();
+
+            return response()->json(['message' => 'game goal stored'], 201);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['error' => 'game goal not found'], 404);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'An unexpected error occurred'], 500);
+        }
+    }
 }

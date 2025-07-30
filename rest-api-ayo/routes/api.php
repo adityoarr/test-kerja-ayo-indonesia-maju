@@ -23,3 +23,5 @@ Route::apiResources([
     'player_position' => PlayerPositionController::class,
     'games' => GameController::class,
 ]);
+
+Route::post('/games/goal', [GameController::class, 'goal_store']);
