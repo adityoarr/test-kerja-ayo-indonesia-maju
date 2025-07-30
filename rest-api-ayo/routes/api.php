@@ -3,6 +3,7 @@
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\PlayerPositionController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\TeamNumberController;
 use App\Http\Controllers\TournamentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,7 @@ Route::get('/user', function (Request $request) {
 
 Route::apiResources([
     'teams' => TeamController::class,
+    'team_number' => TeamNumberController::class,
     'players' => PlayerController::class,
     'player_position' => PlayerPositionController::class,
     'tournament' => TournamentController::class,
